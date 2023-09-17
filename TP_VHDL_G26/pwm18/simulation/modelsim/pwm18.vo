@@ -1,0 +1,539 @@
+// Copyright (C) 2018  Intel Corporation. All rights reserved.
+// Your use of Intel Corporation's design tools, logic functions 
+// and other software and tools, and its AMPP partner logic 
+// functions, and any output files from any of the foregoing 
+// (including device programming or simulation files), and any 
+// associated documentation or information are expressly subject 
+// to the terms and conditions of the Intel Program License 
+// Subscription Agreement, the Intel Quartus Prime License Agreement,
+// the Intel FPGA IP License Agreement, or other applicable license
+// agreement, including, without limitation, that your use is for
+// the sole purpose of programming logic devices manufactured by
+// Intel and sold by Intel or its authorized distributors.  Please
+// refer to the applicable agreement for further details.
+
+// VENDOR "Altera"
+// PROGRAM "Quartus Prime"
+// VERSION "Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition"
+
+// DATE "04/01/2015 21:59:57"
+
+// 
+// Device: Altera EP4CE22F17C6 Package FBGA256
+// 
+
+// 
+// This Verilog file should be used for ModelSim (Verilog) only
+// 
+
+`timescale 1 ps/ 1 ps
+
+module pwm18 (
+	clk,
+	pwm_s);
+input 	clk;
+output 	pwm_s;
+
+// Design Ports Information
+// pwm_s	=>  Location: PIN_A2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// clk	=>  Location: PIN_R8,	 I/O Standard: 2.5 V,	 Current Strength: Default
+
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+tri1 devclrn;
+tri1 devpor;
+tri1 devoe;
+wire \pwm_s~output_o ;
+wire \clk~input_o ;
+wire \clk~inputclkctrl_outclk ;
+wire \compteur[0]~8_combout ;
+wire \compteur[6]~21 ;
+wire \compteur[7]~22_combout ;
+wire \LessThan0~0_combout ;
+wire \LessThan0~1_combout ;
+wire \compteur[0]~9 ;
+wire \compteur[1]~10_combout ;
+wire \compteur[1]~11 ;
+wire \compteur[2]~12_combout ;
+wire \compteur[2]~13 ;
+wire \compteur[3]~14_combout ;
+wire \compteur[3]~15 ;
+wire \compteur[4]~16_combout ;
+wire \compteur[4]~17 ;
+wire \compteur[5]~18_combout ;
+wire \compteur[5]~19 ;
+wire \compteur[6]~20_combout ;
+wire \LessThan1~0_combout ;
+wire \LessThan1~1_combout ;
+wire \pwm_signal~q ;
+wire [7:0] compteur;
+
+
+hard_block auto_generated_inst(
+	.devpor(devpor),
+	.devclrn(devclrn),
+	.devoe(devoe));
+
+// Location: IOOBUF_X7_Y34_N9
+cycloneive_io_obuf \pwm_s~output (
+	.i(\pwm_signal~q ),
+	.oe(vcc),
+	.seriesterminationcontrol(16'b0000000000000000),
+	.devoe(devoe),
+	.o(\pwm_s~output_o ),
+	.obar());
+// synopsys translate_off
+defparam \pwm_s~output .bus_hold = "false";
+defparam \pwm_s~output .open_drain_output = "false";
+// synopsys translate_on
+
+// Location: IOIBUF_X27_Y0_N22
+cycloneive_io_ibuf \clk~input (
+	.i(clk),
+	.ibar(gnd),
+	.o(\clk~input_o ));
+// synopsys translate_off
+defparam \clk~input .bus_hold = "false";
+defparam \clk~input .simulate_z_as = "z";
+// synopsys translate_on
+
+// Location: CLKCTRL_G18
+cycloneive_clkctrl \clk~inputclkctrl (
+	.ena(vcc),
+	.inclk({vcc,vcc,vcc,\clk~input_o }),
+	.clkselect(2'b00),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.outclk(\clk~inputclkctrl_outclk ));
+// synopsys translate_off
+defparam \clk~inputclkctrl .clock_type = "global clock";
+defparam \clk~inputclkctrl .ena_register_mode = "none";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N0
+cycloneive_lcell_comb \compteur[0]~8 (
+// Equation(s):
+// \compteur[0]~8_combout  = compteur[0] $ (VCC)
+// \compteur[0]~9  = CARRY(compteur[0])
+
+	.dataa(gnd),
+	.datab(compteur[0]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(gnd),
+	.combout(\compteur[0]~8_combout ),
+	.cout(\compteur[0]~9 ));
+// synopsys translate_off
+defparam \compteur[0]~8 .lut_mask = 16'h33CC;
+defparam \compteur[0]~8 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N12
+cycloneive_lcell_comb \compteur[6]~20 (
+// Equation(s):
+// \compteur[6]~20_combout  = (compteur[6] & (\compteur[5]~19  $ (GND))) # (!compteur[6] & (!\compteur[5]~19  & VCC))
+// \compteur[6]~21  = CARRY((compteur[6] & !\compteur[5]~19 ))
+
+	.dataa(compteur[6]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[5]~19 ),
+	.combout(\compteur[6]~20_combout ),
+	.cout(\compteur[6]~21 ));
+// synopsys translate_off
+defparam \compteur[6]~20 .lut_mask = 16'hA50A;
+defparam \compteur[6]~20 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N14
+cycloneive_lcell_comb \compteur[7]~22 (
+// Equation(s):
+// \compteur[7]~22_combout  = compteur[7] $ (\compteur[6]~21 )
+
+	.dataa(gnd),
+	.datab(compteur[7]),
+	.datac(gnd),
+	.datad(gnd),
+	.cin(\compteur[6]~21 ),
+	.combout(\compteur[7]~22_combout ),
+	.cout());
+// synopsys translate_off
+defparam \compteur[7]~22 .lut_mask = 16'h3C3C;
+defparam \compteur[7]~22 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N15
+dffeas \compteur[7] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[7]~22_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[7]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[7] .is_wysiwyg = "true";
+defparam \compteur[7] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N18
+cycloneive_lcell_comb \LessThan0~0 (
+// Equation(s):
+// \LessThan0~0_combout  = (!compteur[4] & !compteur[3])
+
+	.dataa(gnd),
+	.datab(gnd),
+	.datac(compteur[4]),
+	.datad(compteur[3]),
+	.cin(gnd),
+	.combout(\LessThan0~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~0 .lut_mask = 16'h000F;
+defparam \LessThan0~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N26
+cycloneive_lcell_comb \LessThan0~1 (
+// Equation(s):
+// \LessThan0~1_combout  = (compteur[6] & (compteur[7] & ((compteur[5]) # (!\LessThan0~0_combout ))))
+
+	.dataa(compteur[6]),
+	.datab(compteur[7]),
+	.datac(compteur[5]),
+	.datad(\LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\LessThan0~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan0~1 .lut_mask = 16'h8088;
+defparam \LessThan0~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N1
+dffeas \compteur[0] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[0]~8_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[0]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[0] .is_wysiwyg = "true";
+defparam \compteur[0] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N2
+cycloneive_lcell_comb \compteur[1]~10 (
+// Equation(s):
+// \compteur[1]~10_combout  = (compteur[1] & (!\compteur[0]~9 )) # (!compteur[1] & ((\compteur[0]~9 ) # (GND)))
+// \compteur[1]~11  = CARRY((!\compteur[0]~9 ) # (!compteur[1]))
+
+	.dataa(gnd),
+	.datab(compteur[1]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[0]~9 ),
+	.combout(\compteur[1]~10_combout ),
+	.cout(\compteur[1]~11 ));
+// synopsys translate_off
+defparam \compteur[1]~10 .lut_mask = 16'h3C3F;
+defparam \compteur[1]~10 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N3
+dffeas \compteur[1] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[1]~10_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[1]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[1] .is_wysiwyg = "true";
+defparam \compteur[1] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N4
+cycloneive_lcell_comb \compteur[2]~12 (
+// Equation(s):
+// \compteur[2]~12_combout  = (compteur[2] & (\compteur[1]~11  $ (GND))) # (!compteur[2] & (!\compteur[1]~11  & VCC))
+// \compteur[2]~13  = CARRY((compteur[2] & !\compteur[1]~11 ))
+
+	.dataa(gnd),
+	.datab(compteur[2]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[1]~11 ),
+	.combout(\compteur[2]~12_combout ),
+	.cout(\compteur[2]~13 ));
+// synopsys translate_off
+defparam \compteur[2]~12 .lut_mask = 16'hC30C;
+defparam \compteur[2]~12 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N5
+dffeas \compteur[2] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[2]~12_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[2]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[2] .is_wysiwyg = "true";
+defparam \compteur[2] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N6
+cycloneive_lcell_comb \compteur[3]~14 (
+// Equation(s):
+// \compteur[3]~14_combout  = (compteur[3] & (!\compteur[2]~13 )) # (!compteur[3] & ((\compteur[2]~13 ) # (GND)))
+// \compteur[3]~15  = CARRY((!\compteur[2]~13 ) # (!compteur[3]))
+
+	.dataa(compteur[3]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[2]~13 ),
+	.combout(\compteur[3]~14_combout ),
+	.cout(\compteur[3]~15 ));
+// synopsys translate_off
+defparam \compteur[3]~14 .lut_mask = 16'h5A5F;
+defparam \compteur[3]~14 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N7
+dffeas \compteur[3] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[3]~14_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[3]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[3] .is_wysiwyg = "true";
+defparam \compteur[3] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N8
+cycloneive_lcell_comb \compteur[4]~16 (
+// Equation(s):
+// \compteur[4]~16_combout  = (compteur[4] & (\compteur[3]~15  $ (GND))) # (!compteur[4] & (!\compteur[3]~15  & VCC))
+// \compteur[4]~17  = CARRY((compteur[4] & !\compteur[3]~15 ))
+
+	.dataa(gnd),
+	.datab(compteur[4]),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[3]~15 ),
+	.combout(\compteur[4]~16_combout ),
+	.cout(\compteur[4]~17 ));
+// synopsys translate_off
+defparam \compteur[4]~16 .lut_mask = 16'hC30C;
+defparam \compteur[4]~16 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N9
+dffeas \compteur[4] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[4]~16_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[4]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[4] .is_wysiwyg = "true";
+defparam \compteur[4] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N10
+cycloneive_lcell_comb \compteur[5]~18 (
+// Equation(s):
+// \compteur[5]~18_combout  = (compteur[5] & (!\compteur[4]~17 )) # (!compteur[5] & ((\compteur[4]~17 ) # (GND)))
+// \compteur[5]~19  = CARRY((!\compteur[4]~17 ) # (!compteur[5]))
+
+	.dataa(compteur[5]),
+	.datab(gnd),
+	.datac(gnd),
+	.datad(vcc),
+	.cin(\compteur[4]~17 ),
+	.combout(\compteur[5]~18_combout ),
+	.cout(\compteur[5]~19 ));
+// synopsys translate_off
+defparam \compteur[5]~18 .lut_mask = 16'h5A5F;
+defparam \compteur[5]~18 .sum_lutc_input = "cin";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N11
+dffeas \compteur[5] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[5]~18_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[5]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[5] .is_wysiwyg = "true";
+defparam \compteur[5] .power_up = "low";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N13
+dffeas \compteur[6] (
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\compteur[6]~20_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(\LessThan0~1_combout ),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(compteur[6]),
+	.prn(vcc));
+// synopsys translate_off
+defparam \compteur[6] .is_wysiwyg = "true";
+defparam \compteur[6] .power_up = "low";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N28
+cycloneive_lcell_comb \LessThan1~0 (
+// Equation(s):
+// \LessThan1~0_combout  = ((compteur[2] & ((compteur[0]) # (compteur[1])))) # (!\LessThan0~0_combout )
+
+	.dataa(compteur[0]),
+	.datab(compteur[1]),
+	.datac(compteur[2]),
+	.datad(\LessThan0~0_combout ),
+	.cin(gnd),
+	.combout(\LessThan1~0_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan1~0 .lut_mask = 16'hE0FF;
+defparam \LessThan1~0 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: LCCOMB_X8_Y33_N16
+cycloneive_lcell_comb \LessThan1~1 (
+// Equation(s):
+// \LessThan1~1_combout  = (!compteur[7] & (((!\LessThan1~0_combout ) # (!compteur[5])) # (!compteur[6])))
+
+	.dataa(compteur[6]),
+	.datab(compteur[5]),
+	.datac(compteur[7]),
+	.datad(\LessThan1~0_combout ),
+	.cin(gnd),
+	.combout(\LessThan1~1_combout ),
+	.cout());
+// synopsys translate_off
+defparam \LessThan1~1 .lut_mask = 16'h070F;
+defparam \LessThan1~1 .sum_lutc_input = "datac";
+// synopsys translate_on
+
+// Location: FF_X8_Y33_N17
+dffeas pwm_signal(
+	.clk(\clk~inputclkctrl_outclk ),
+	.d(\LessThan1~1_combout ),
+	.asdata(vcc),
+	.clrn(vcc),
+	.aload(gnd),
+	.sclr(gnd),
+	.sload(gnd),
+	.ena(vcc),
+	.devclrn(devclrn),
+	.devpor(devpor),
+	.q(\pwm_signal~q ),
+	.prn(vcc));
+// synopsys translate_off
+defparam pwm_signal.is_wysiwyg = "true";
+defparam pwm_signal.power_up = "low";
+// synopsys translate_on
+
+assign pwm_s = \pwm_s~output_o ;
+
+endmodule
+
+module hard_block (
+
+	devpor,
+	devclrn,
+	devoe);
+
+// Design Ports Information
+// ~ALTERA_ASDO_DATA1~	=>  Location: PIN_C1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_FLASH_nCE_nCSO~	=>  Location: PIN_D2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DCLK~	=>  Location: PIN_H1,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_DATA0~	=>  Location: PIN_H2,	 I/O Standard: 2.5 V,	 Current Strength: Default
+// ~ALTERA_nCEO~	=>  Location: PIN_F16,	 I/O Standard: 2.5 V,	 Current Strength: 8mA
+
+input 	devpor;
+input 	devclrn;
+input 	devoe;
+
+wire gnd;
+wire vcc;
+wire unknown;
+
+assign gnd = 1'b0;
+assign vcc = 1'b1;
+assign unknown = 1'bx;
+
+wire \~ALTERA_ASDO_DATA1~~padout ;
+wire \~ALTERA_FLASH_nCE_nCSO~~padout ;
+wire \~ALTERA_DATA0~~padout ;
+wire \~ALTERA_ASDO_DATA1~~ibuf_o ;
+wire \~ALTERA_FLASH_nCE_nCSO~~ibuf_o ;
+wire \~ALTERA_DATA0~~ibuf_o ;
+
+
+endmodule

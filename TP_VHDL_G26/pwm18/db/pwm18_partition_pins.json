@@ -1,0 +1,85 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "pwm_s",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[7]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[6]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[5]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[4]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[3]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[2]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[1]",
+					"strict" : false
+				},
+				{
+					"name" : "DUTY[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "reset",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[7]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[6]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[5]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[4]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[3]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[2]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[1]",
+					"strict" : false
+				},
+				{
+					"name" : "FREQ[0]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}
