@@ -1,0 +1,31 @@
+|diviseur
+clk_in => compteur[25].CLK
+clk_in => compteur[24].CLK
+clk_in => compteur[23].CLK
+clk_in => compteur[22].CLK
+clk_in => compteur[21].CLK
+clk_in => compteur[20].CLK
+clk_in => compteur[19].CLK
+clk_in => compteur[18].CLK
+clk_in => compteur[17].CLK
+clk_in => compteur[16].CLK
+clk_in => compteur[15].CLK
+clk_in => compteur[14].CLK
+clk_in => compteur[13].CLK
+clk_in => compteur[12].CLK
+clk_in => compteur[11].CLK
+clk_in => compteur[10].CLK
+clk_in => compteur[9].CLK
+clk_in => compteur[8].CLK
+clk_in => compteur[7].CLK
+clk_in => compteur[6].CLK
+clk_in => compteur[5].CLK
+clk_in => compteur[4].CLK
+clk_in => compteur[3].CLK
+clk_in => compteur[2].CLK
+clk_in => compteur[1].CLK
+clk_in => compteur[0].CLK
+clk_in => clk_divided.CLK
+clk_out <= clk_divided.DB_MAX_OUTPUT_PORT_TYPE
+
+
