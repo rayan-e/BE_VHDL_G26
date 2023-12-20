@@ -1,0 +1,33 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.ALL;
+  
+entity diviseur_1s is
+port ( clk,raz_n: in std_logic;
+diviseur_1hz_out: out std_logic);
+end diviseur_1s;
+  
+architecture ar_diviseur of diviseur_1s is
+  
+signal count: integer:=0;
+signal clk_divided_1s : STD_LOGIC:= '0';
+  
+begin
+  
+	process(clk,raz_n)
+	begin
+		if(raz_n='0') then
+			count<= 0;
+			clk_divided_1s<='0';
+		elsif(clk'event and clk='1') then
+		if (count = 25000000) then
+			clk_divided_1s <= NOT clk_divided_1s;
+			count<= 0;
+		else
+			count <=count+1;
+		end if;
+		end if;
+	diviseur_1hz_out <= clk_divided_1s;
+	end process;
+  
+end ar_diviseur;

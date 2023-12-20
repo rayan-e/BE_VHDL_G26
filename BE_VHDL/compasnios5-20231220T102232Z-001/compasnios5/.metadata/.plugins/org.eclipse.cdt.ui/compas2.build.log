@@ -1,0 +1,9 @@
+16:55:47 **** Build of configuration Nios II for project compas2 ****
+make all 
+Info: Building ../compas2_bsp/
+D:/modelSim/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../compas2_bsp/
+[BSP build complete]
+[compas2 build complete]
+
+16:55:48 Build Finished (took 716ms)
+

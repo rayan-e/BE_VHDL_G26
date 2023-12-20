@@ -1,0 +1,9 @@
+20:41:24 **** Build of configuration Nios II for project nios ****
+make all 
+Info: Building ../nios_bsp/
+D:/modelSim/nios2eds/bin/gnu/H-x86_64-mingw32/bin/make --no-print-directory -C ../nios_bsp/
+[BSP build complete]
+[nios build complete]
+
+20:41:25 Build Finished (took 774ms)
+

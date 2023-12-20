@@ -1,0 +1,44 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity compteur is
+    port (
+        go_compte, diviseur_10khz_out, raz_n: in std_logic;
+        out_compteur_angle: out std_logic_vector(7 downto 0);
+		  end_compte: out std_logic
+		  
+    );
+end compteur;
+
+architecture ar_compteur of compteur is
+    signal compteur_angle : std_logic_vector(7 downto 0) := (others => '0');
+    signal compteur_angle_2 : std_logic_vector(7 downto 0) := (others => '0');
+	 signal fin_compte : std_logic := '0';
+	 signal comptage : std_logic := '0';
+begin
+    process(raz_n, diviseur_10khz_out, go_compte)
+begin
+    if raz_n = '0' then
+        compteur_angle <= (others => '0');
+	 elsif rising_edge(diviseur_10khz_out) then
+	 if go_compte = '1' then
+	   comptage <= '1';
+		fin_compte <= '0';   
+            -- send_signal_end_compte <= '0';
+      compteur_angle <= compteur_angle + 1;
+	 elsif (fin_compte = '0' and go_compte = '0' and comptage = '1') then
+	   compteur_angle_2 <= compteur_angle;
+		compteur_angle <= (others => '0');
+		fin_compte <= '1';
+		comptage <= '0';
+    end if;
+	  end if;
+end process;
+
+
+    out_compteur_angle <= compteur_angle_2;
+	 end_compte <= fin_compte;
+end ar_compteur;

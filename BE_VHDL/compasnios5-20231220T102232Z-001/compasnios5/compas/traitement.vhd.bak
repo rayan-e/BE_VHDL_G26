@@ -1,0 +1,76 @@
+library IEEE;
+use IEEE.STD_LOGIC_1164.ALL;
+use IEEE.numeric_std.ALL;
+use IEEE.STD_LOGIC_ARITH.ALL;
+use IEEE.STD_LOGIC_UNSIGNED.ALL;
+
+entity traitement is
+    port (
+        in_pwm_compas, raz_n, fin_1ms, start_stop, continu, diviseur_1hz_out, end_compte: in std_logic;
+        out_compteur_angle: in std_logic_vector(7 downto 0);
+        go_compte, go_timer, data_valid, stop_compte: out std_logic;
+        data_compas: out std_logic_vector(7 downto 0)
+    );
+end traitement;
+
+architecture ar_traitement of traitement is
+    signal compteur_angle: std_logic_vector(7 downto 0):= (others => '0');
+    signal signal_data_valid: std_logic := '0';  -- Initialize signal_data_valid
+	 signal stop: std_logic := '0';
+	 signal restart: integer := 1;
+	 signal start_compte: std_logic := '0';
+    signal start_timer: std_logic := '0';
+    signal end_timer: std_logic := '0';
+	 signal signal_end_compte: std_logic := '0';
+
+begin
+	 process(in_pwm_compas, raz_n, fin_1ms, continu, start_stop, stop)
+    begin
+        if raz_n = '0' then
+            start_compte <= '0';
+        elsif in_pwm_compas = '1' then
+				if(continu = '0' and start_stop = '1' and stop = '1') then
+					start_compte <= '0';
+				elsif((start_stop = '1' and stop = '0') or continu = '1') then
+                start_compte <= '1';
+				end if;
+        elsif(in_pwm_compas = '0') then -- Explicitly assign values in all branches
+            start_compte <= '0';
+        end if;
+    end process;
+	 
+    process(continu, start_stop, diviseur_1hz_out, out_compteur_angle, stop, end_compte, raz_n, in_pwm_compas, restart)
+    begin
+		  if raz_n = '0' then
+				compteur_angle <= (others => '0');
+        elsif (continu = '1') then
+				signal_data_valid <= '1';
+				stop <= '0';
+            if rising_edge(diviseur_1hz_out) then
+                compteur_angle <= out_compteur_angle - "1010";
+            end if;
+        elsif (start_stop = '1' and end_compte = '1' and stop = '0' and restart = 2) then
+				-- if(stop = '0') then
+					signal_data_valid <= '1';
+					compteur_angle <= out_compteur_angle - "1010";
+					restart <= 0;
+					stop <= '1';
+		 elsif(start_stop = '0') then
+		 --else
+            signal_data_valid <= '0';
+				stop <= '0';
+				restart <= 1;
+        end if;
+		  
+		  if (in_pwm_compas = '1' and start_stop = '1' and end_compte = '0' and stop = '0' and restart = 1 and continu ='0') then 
+				   restart <= 2;
+		  end if;
+    end process;
+	 
+    data_compas <= compteur_angle;
+    data_valid <= signal_data_valid;
+	 go_compte <= start_compte;
+    go_timer <= start_timer;
+    end_timer <= fin_1ms;
+	 signal_end_compte <= end_compte;
+end ar_traitement;

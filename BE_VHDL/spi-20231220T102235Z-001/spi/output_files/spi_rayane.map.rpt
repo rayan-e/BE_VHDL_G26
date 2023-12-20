@@ -1,0 +1,494 @@
+Analysis & Synthesis report for spi_rayane
+Wed Dec 20 10:11:29 2023
+Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. Registers Removed During Synthesis
+  9. General Register Statistics
+ 10. Post-Synthesis Netlist Statistics for Top Partition
+ 11. Elapsed Time Per Partition
+ 12. Analysis & Synthesis Messages
+ 13. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2018  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details.
+
+
+
++----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                     ;
++------------------------------------+---------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Dec 20 10:11:29 2023       ;
+; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
+; Revision Name                      ; spi_rayane                                  ;
+; Top-level Entity Name              ; top_spi                                     ;
+; Family                             ; Cyclone IV E                                ;
+; Total logic elements               ; 117                                         ;
+;     Total combinational functions  ; 117                                         ;
+;     Dedicated logic registers      ; 78                                          ;
+; Total registers                    ; 78                                          ;
+; Total pins                         ; 17                                          ;
+; Total virtual pins                 ; 0                                           ;
+; Total memory bits                  ; 0                                           ;
+; Embedded Multiplier 9-bit elements ; 0                                           ;
+; Total PLLs                         ; 0                                           ;
++------------------------------------+---------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE22F17C6       ;                    ;
+; Top-level entity name                                            ; top_spi            ; spi_rayane         ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processors 3-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                         ;
++----------------------------------+-----------------+-----------------+-------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path  ; Library ;
++----------------------------------+-----------------+-----------------+-------------------------------+---------+
+; traitement.vhd                   ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/traitement.vhd ;         ;
+; div_1M.vhd                       ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/div_1M.vhd     ;         ;
+; CSconv.vhd                       ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/CSconv.vhd     ;         ;
+; devis_clk.vhd                    ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/devis_clk.vhd  ;         ;
+; top_spi.vhd                      ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/top_spi.vhd    ;         ;
+; mylib.vhd                        ; yes             ; User VHDL File  ; E:/TP_VHDL/spi/mylib.vhd      ;         ;
++----------------------------------+-----------------+-----------------+-------------------------------+---------+
+
+
++-----------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary               ;
++---------------------------------------------+-------------+
+; Resource                                    ; Usage       ;
++---------------------------------------------+-------------+
+; Estimated Total logic elements              ; 117         ;
+;                                             ;             ;
+; Total combinational functions               ; 117         ;
+; Logic element usage by number of LUT inputs ;             ;
+;     -- 4 input functions                    ; 45          ;
+;     -- 3 input functions                    ; 18          ;
+;     -- <=2 input functions                  ; 54          ;
+;                                             ;             ;
+; Logic elements by mode                      ;             ;
+;     -- normal mode                          ; 71          ;
+;     -- arithmetic mode                      ; 46          ;
+;                                             ;             ;
+; Total registers                             ; 78          ;
+;     -- Dedicated logic registers            ; 78          ;
+;     -- I/O registers                        ; 0           ;
+;                                             ;             ;
+; I/O pins                                    ; 17          ;
+;                                             ;             ;
+; Embedded Multiplier 9-bit elements          ; 0           ;
+;                                             ;             ;
+; Maximum fan-out node                        ; reset~input ;
+; Maximum fan-out                             ; 63          ;
+; Total fan-out                               ; 596         ;
+; Average fan-out                             ; 2.60        ;
++---------------------------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name           ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
+; |top_spi                   ; 117 (0)             ; 78 (0)                    ; 0           ; 0            ; 0       ; 0         ; 17   ; 0            ; |top_spi                      ; top_spi     ; work         ;
+;    |CSconv:b2v_inst3|      ; 20 (20)             ; 12 (12)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_spi|CSconv:b2v_inst3     ; CSconv      ; work         ;
+;    |devis_clk:b2v_inst2|   ; 22 (22)             ; 17 (17)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_spi|devis_clk:b2v_inst2  ; devis_clk   ; work         ;
+;    |div_1M:b2v_inst4|      ; 46 (46)             ; 33 (33)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_spi|div_1M:b2v_inst4     ; div_1M      ; work         ;
+;    |traitement:b2v_inst5|  ; 29 (29)             ; 16 (16)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |top_spi|traitement:b2v_inst5 ; traitement  ; work         ;
++----------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
++-----------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                ;
++---------------------------------------+-------------------------------------------+
+; Register name                         ; Reason for Removal                        ;
++---------------------------------------+-------------------------------------------+
+; traitement:b2v_inst5|count_n2[4]      ; Merged with traitement:b2v_inst5|count[4] ;
+; traitement:b2v_inst5|count_n2[3]      ; Merged with traitement:b2v_inst5|count[3] ;
+; traitement:b2v_inst5|count_n2[2]      ; Merged with traitement:b2v_inst5|count[2] ;
+; traitement:b2v_inst5|count_n2[1]      ; Merged with traitement:b2v_inst5|count[1] ;
+; traitement:b2v_inst5|count_n2[0]      ; Merged with traitement:b2v_inst5|count[0] ;
+; traitement:b2v_inst5|decalage[0]      ; Stuck at GND due to stuck port data_in    ;
+; Total Number of Removed Registers = 6 ;                                           ;
++---------------------------------------+-------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 78    ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 54    ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 17    ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 17                          ;
+; cycloneiii_ff         ; 78                          ;
+;     CLR               ; 48                          ;
+;     ENA               ; 11                          ;
+;     ENA CLR           ; 6                           ;
+;     plain             ; 13                          ;
+; cycloneiii_lcell_comb ; 118                         ;
+;     arith             ; 46                          ;
+;         2 data inputs ; 46                          ;
+;     normal            ; 72                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 18                          ;
+;         4 data inputs ; 45                          ;
+;                       ;                             ;
+; Max LUT depth         ; 8.90                        ;
+; Average LUT depth     ; 5.20                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+    Info: Processing started: Wed Dec 20 10:11:17 2023
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off spi_rayane -c spi_rayane
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file nios/synthesis/nios.vhd
+    Info (12022): Found design unit 1: nios-rtl File: E:/TP_VHDL/spi/nios/synthesis/nios.vhd Line: 18
+    Info (12023): Found entity 1: nios File: E:/TP_VHDL/spi/nios/synthesis/nios.vhd Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_reset_controller.v
+    Info (12023): Found entity 1: altera_reset_controller File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_reset_controller.v Line: 42
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_reset_synchronizer.v
+    Info (12023): Found entity 1: altera_reset_synchronizer File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_reset_synchronizer.v Line: 24
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_irq_mapper.sv
+    Info (12023): Found entity 1: nios_irq_mapper File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_irq_mapper.sv Line: 31
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0.v
+    Info (12023): Found entity 1: nios_mm_interconnect_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_avalon_st_adapter.v
+    Info (12023): Found entity 1: nios_mm_interconnect_0_avalon_st_adapter File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_avalon_st_adapter.v Line: 9
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_avalon_st_adapter_error_adapter_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_avalon_st_adapter_error_adapter_0.sv Line: 66
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_rsp_mux_001.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_rsp_mux_001 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_rsp_mux_001.sv Line: 51
+Info (12021): Found 2 design units, including 2 entities, in source file nios/synthesis/submodules/altera_merlin_arbitrator.sv
+    Info (12023): Found entity 1: altera_merlin_arbitrator File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_arbitrator.sv Line: 103
+    Info (12023): Found entity 2: altera_merlin_arb_adder File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_arbitrator.sv Line: 228
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_rsp_mux.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_rsp_mux File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_rsp_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_rsp_demux.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_rsp_demux File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_rsp_demux.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_cmd_mux_002.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_cmd_mux_002 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_cmd_mux_002.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_cmd_mux.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_cmd_mux File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_cmd_mux.sv Line: 51
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_cmd_demux_001.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_cmd_demux_001 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_cmd_demux_001.sv Line: 43
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_cmd_demux.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_cmd_demux File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_cmd_demux.sv Line: 43
+Info (12021): Found 2 design units, including 2 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_router_004.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_router_004_default_decode File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_004.sv Line: 45
+    Info (12023): Found entity 2: nios_mm_interconnect_0_router_004 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_004.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_router_002.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_router_002_default_decode File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_002.sv Line: 45
+    Info (12023): Found entity 2: nios_mm_interconnect_0_router_002 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_002.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_router_001.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_router_001_default_decode File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_001.sv Line: 45
+    Info (12023): Found entity 2: nios_mm_interconnect_0_router_001 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router_001.sv Line: 84
+Info (12021): Found 2 design units, including 2 entities, in source file nios/synthesis/submodules/nios_mm_interconnect_0_router.sv
+    Info (12023): Found entity 1: nios_mm_interconnect_0_router_default_decode File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router.sv Line: 45
+    Info (12023): Found entity 2: nios_mm_interconnect_0_router File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_mm_interconnect_0_router.sv Line: 84
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_avalon_sc_fifo.v
+    Info (12023): Found entity 1: altera_avalon_sc_fifo File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_avalon_sc_fifo.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_merlin_slave_agent.sv
+    Info (12023): Found entity 1: altera_merlin_slave_agent File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_slave_agent.sv Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_merlin_burst_uncompressor.sv
+    Info (12023): Found entity 1: altera_merlin_burst_uncompressor File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_burst_uncompressor.sv Line: 40
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_merlin_master_agent.sv
+    Info (12023): Found entity 1: altera_merlin_master_agent File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_master_agent.sv Line: 28
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_merlin_slave_translator.sv
+    Info (12023): Found entity 1: altera_merlin_slave_translator File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_slave_translator.sv Line: 35
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/altera_merlin_master_translator.sv
+    Info (12023): Found entity 1: altera_merlin_master_translator File: E:/TP_VHDL/spi/nios/synthesis/submodules/altera_merlin_master_translator.sv Line: 32
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_sysid_qsys_0.v
+    Info (12023): Found entity 1: nios_sysid_qsys_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_sysid_qsys_0.v Line: 34
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_onchip_memory2_0.v
+    Info (12023): Found entity 1: nios_onchip_memory2_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_onchip_memory2_0.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0.v Line: 9
+Info (12021): Found 21 design units, including 21 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0_cpu_register_bank_a_module File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 21
+    Info (12023): Found entity 2: nios_nios2_gen2_0_cpu_register_bank_b_module File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 87
+    Info (12023): Found entity 3: nios_nios2_gen2_0_cpu_nios2_oci_debug File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 153
+    Info (12023): Found entity 4: nios_nios2_gen2_0_cpu_nios2_oci_break File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 295
+    Info (12023): Found entity 5: nios_nios2_gen2_0_cpu_nios2_oci_xbrk File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 588
+    Info (12023): Found entity 6: nios_nios2_gen2_0_cpu_nios2_oci_dbrk File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 795
+    Info (12023): Found entity 7: nios_nios2_gen2_0_cpu_nios2_oci_itrace File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 982
+    Info (12023): Found entity 8: nios_nios2_gen2_0_cpu_nios2_oci_td_mode File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1115
+    Info (12023): Found entity 9: nios_nios2_gen2_0_cpu_nios2_oci_dtrace File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1183
+    Info (12023): Found entity 10: nios_nios2_gen2_0_cpu_nios2_oci_compute_input_tm_cnt File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1265
+    Info (12023): Found entity 11: nios_nios2_gen2_0_cpu_nios2_oci_fifo_wrptr_inc File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1337
+    Info (12023): Found entity 12: nios_nios2_gen2_0_cpu_nios2_oci_fifo_cnt_inc File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1380
+    Info (12023): Found entity 13: nios_nios2_gen2_0_cpu_nios2_oci_fifo File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1427
+    Info (12023): Found entity 14: nios_nios2_gen2_0_cpu_nios2_oci_pib File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1913
+    Info (12023): Found entity 15: nios_nios2_gen2_0_cpu_nios2_oci_im File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 1936
+    Info (12023): Found entity 16: nios_nios2_gen2_0_cpu_nios2_performance_monitors File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2006
+    Info (12023): Found entity 17: nios_nios2_gen2_0_cpu_nios2_avalon_reg File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2023
+    Info (12023): Found entity 18: nios_nios2_gen2_0_cpu_ociram_sp_ram_module File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2116
+    Info (12023): Found entity 19: nios_nios2_gen2_0_cpu_nios2_ocimem File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2181
+    Info (12023): Found entity 20: nios_nios2_gen2_0_cpu_nios2_oci File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2362
+    Info (12023): Found entity 21: nios_nios2_gen2_0_cpu File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu.v Line: 2834
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_sysclk.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0_cpu_debug_slave_sysclk File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_sysclk.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_tck.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0_cpu_debug_slave_tck File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_tck.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_wrapper.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0_cpu_debug_slave_wrapper File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu_debug_slave_wrapper.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_nios2_gen2_0_cpu_test_bench.v
+    Info (12023): Found entity 1: nios_nios2_gen2_0_cpu_test_bench File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_nios2_gen2_0_cpu_test_bench.v Line: 21
+Info (12021): Found 5 design units, including 5 entities, in source file nios/synthesis/submodules/nios_jtag_uart_0.v
+    Info (12023): Found entity 1: nios_jtag_uart_0_sim_scfifo_w File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_jtag_uart_0.v Line: 21
+    Info (12023): Found entity 2: nios_jtag_uart_0_scfifo_w File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_jtag_uart_0.v Line: 78
+    Info (12023): Found entity 3: nios_jtag_uart_0_sim_scfifo_r File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_jtag_uart_0.v Line: 164
+    Info (12023): Found entity 4: nios_jtag_uart_0_scfifo_r File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_jtag_uart_0.v Line: 243
+    Info (12023): Found entity 5: nios_jtag_uart_0 File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_jtag_uart_0.v Line: 331
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_data_out.v
+    Info (12023): Found entity 1: nios_data_out File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_data_out.v Line: 21
+Info (12021): Found 1 design units, including 1 entities, in source file nios/synthesis/submodules/nios_data_in.v
+    Info (12023): Found entity 1: nios_data_in File: E:/TP_VHDL/spi/nios/synthesis/submodules/nios_data_in.v Line: 21
+Info (12021): Found 2 design units, including 1 entities, in source file traitement.vhd
+    Info (12022): Found design unit 1: traitement-TRT File: E:/TP_VHDL/spi/traitement.vhd Line: 17
+    Info (12023): Found entity 1: traitement File: E:/TP_VHDL/spi/traitement.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file div_1m.vhd
+    Info (12022): Found design unit 1: div_1M-DIV File: E:/TP_VHDL/spi/div_1M.vhd Line: 13
+    Info (12023): Found entity 1: div_1M File: E:/TP_VHDL/spi/div_1M.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file csconv.vhd
+    Info (12022): Found design unit 1: CSconv-ADC File: E:/TP_VHDL/spi/CSconv.vhd Line: 15
+    Info (12023): Found entity 1: CSconv File: E:/TP_VHDL/spi/CSconv.vhd Line: 5
+Info (12021): Found 2 design units, including 1 entities, in source file devis_clk.vhd
+    Info (12022): Found design unit 1: devis_clk-DIV2 File: E:/TP_VHDL/spi/devis_clk.vhd Line: 15
+    Info (12023): Found entity 1: devis_clk File: E:/TP_VHDL/spi/devis_clk.vhd Line: 6
+Info (12021): Found 2 design units, including 1 entities, in source file top_spi.vhd
+    Info (12022): Found design unit 1: top_spi-bdf_type File: E:/TP_VHDL/spi/top_spi.vhd Line: 21
+    Info (12023): Found entity 1: top_spi File: E:/TP_VHDL/spi/top_spi.vhd Line: 8
+Info (12021): Found 1 design units, including 0 entities, in source file mylib.vhd
+    Info (12022): Found design unit 1: mylib File: E:/TP_VHDL/spi/mylib.vhd Line: 4
+Info (12021): Found 1 design units, including 1 entities, in source file spi_rayane.bdf
+    Info (12023): Found entity 1: spi_rayane
+Info (12021): Found 2 design units, including 1 entities, in source file top.vhd
+    Info (12022): Found design unit 1: TOP-top_arch1 File: E:/TP_VHDL/spi/TOP.vhd Line: 20
+    Info (12023): Found entity 1: top File: E:/TP_VHDL/spi/TOP.vhd Line: 8
+Info (12021): Found 1 design units, including 0 entities, in source file lib.vhd
+    Info (12022): Found design unit 1: lib File: E:/TP_VHDL/spi/lib.vhd Line: 4
+Info (12127): Elaborating entity "top_spi" for the top level hierarchy
+Info (12128): Elaborating entity "div_1M" for hierarchy "div_1M:b2v_inst4" File: E:/TP_VHDL/spi/top_spi.vhd Line: 34
+Warning (10492): VHDL Process Statement warning at div_1M.vhd(20): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/div_1M.vhd Line: 20
+Warning (10492): VHDL Process Statement warning at div_1M.vhd(29): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/div_1M.vhd Line: 29
+Info (12128): Elaborating entity "devis_clk" for hierarchy "devis_clk:b2v_inst2" File: E:/TP_VHDL/spi/top_spi.vhd Line: 39
+Warning (10492): VHDL Process Statement warning at devis_clk.vhd(23): signal "reset" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/devis_clk.vhd Line: 23
+Warning (10492): VHDL Process Statement warning at devis_clk.vhd(32): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/devis_clk.vhd Line: 32
+Warning (10492): VHDL Process Statement warning at devis_clk.vhd(33): signal "tmp" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/devis_clk.vhd Line: 33
+Info (12128): Elaborating entity "CSconv" for hierarchy "CSconv:b2v_inst3" File: E:/TP_VHDL/spi/top_spi.vhd Line: 46
+Warning (10492): VHDL Process Statement warning at CSconv.vhd(24): signal "debut_coverstion" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/CSconv.vhd Line: 24
+Warning (10492): VHDL Process Statement warning at CSconv.vhd(32): signal "stop" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/CSconv.vhd Line: 32
+Info (12128): Elaborating entity "traitement" for hierarchy "traitement:b2v_inst5" File: E:/TP_VHDL/spi/top_spi.vhd Line: 53
+Warning (10492): VHDL Process Statement warning at traitement.vhd(41): signal "decalage" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/traitement.vhd Line: 41
+Warning (10492): VHDL Process Statement warning at traitement.vhd(42): signal "cs_in" is read inside the Process Statement but isn't in the Process Statement's sensitivity list File: E:/TP_VHDL/spi/traitement.vhd Line: 42
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "data_out[0]" is stuck at GND File: E:/TP_VHDL/spi/top_spi.vhd Line: 14
+Info (286030): Timing-Driven Synthesis is running
+Warning (20013): Ignored 23 assignments for entity "altera_avalon_sc_fifo" -- entity does not exist in design
+Warning (20013): Ignored 64 assignments for entity "altera_merlin_master_agent" -- entity does not exist in design
+Warning (20013): Ignored 55 assignments for entity "altera_merlin_master_translator" -- entity does not exist in design
+Warning (20013): Ignored 53 assignments for entity "altera_merlin_slave_agent" -- entity does not exist in design
+Warning (20013): Ignored 68 assignments for entity "altera_merlin_slave_translator" -- entity does not exist in design
+Warning (20013): Ignored 35 assignments for entity "altera_reset_controller" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios" -- entity does not exist in design
+Warning (20013): Ignored 23 assignments for entity "nios_data_in" -- entity does not exist in design
+Warning (20013): Ignored 22 assignments for entity "nios_data_out" -- entity does not exist in design
+Warning (20013): Ignored 14 assignments for entity "nios_irq_mapper" -- entity does not exist in design
+Warning (20013): Ignored 24 assignments for entity "nios_jtag_uart_0" -- entity does not exist in design
+Warning (20013): Ignored 12 assignments for entity "nios_mm_interconnect_0" -- entity does not exist in design
+Warning (20013): Ignored 32 assignments for entity "nios_mm_interconnect_0_avalon_st_adapter" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_mm_interconnect_0_avalon_st_adapter_error_adapter_0" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_mm_interconnect_0_cmd_demux" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_mm_interconnect_0_cmd_demux_001" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_mm_interconnect_0_cmd_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_mm_interconnect_0_cmd_mux_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_mm_interconnect_0_router" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_mm_interconnect_0_router_001" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_mm_interconnect_0_router_002" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_mm_interconnect_0_router_004" -- entity does not exist in design
+Warning (20013): Ignored 17 assignments for entity "nios_mm_interconnect_0_rsp_demux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_mm_interconnect_0_rsp_mux" -- entity does not exist in design
+Warning (20013): Ignored 19 assignments for entity "nios_mm_interconnect_0_rsp_mux_001" -- entity does not exist in design
+Warning (20013): Ignored 149 assignments for entity "nios_nios2_gen2_0" -- entity does not exist in design
+Warning (20013): Ignored 179 assignments for entity "nios_nios2_gen2_0_cpu" -- entity does not exist in design
+Warning (20013): Ignored 36 assignments for entity "nios_onchip_memory2_0" -- entity does not exist in design
+Warning (20013): Ignored 10 assignments for entity "nios_sysid_qsys_0" -- entity does not exist in design
+Info (144001): Generated suppressed messages file E:/TP_VHDL/spi/output_files/spi_rayane.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 180 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 14 output pins
+    Info (21061): Implemented 163 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 41 warnings
+    Info: Peak virtual memory: 4872 megabytes
+    Info: Processing ended: Wed Dec 20 10:11:29 2023
+    Info: Elapsed time: 00:00:12
+    Info: Total CPU time (on all processors): 00:00:09
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in E:/TP_VHDL/spi/output_files/spi_rayane.map.smsg.
+
+
